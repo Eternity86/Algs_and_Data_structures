@@ -1,6 +1,11 @@
 package Lesson2;
 
 public class MySortedArrayList<Item extends Comparable<Item>> extends MyArrayList<Item> {
+
+    MySortedArrayList() {
+        super();
+    }
+
     public void insert(Item item) {
         super.insert(item);
         int i = this.size() - 1;

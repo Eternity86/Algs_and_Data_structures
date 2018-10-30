@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class ArraysSort {
     public static void main(String[] args) {
-        int arrSize = 1_000_000_000;
+        int arrSize = 1_000_000;
         MyArrayList<Integer> myList = new MyArrayList<>();
 
         for (int i = 0; i < arrSize; i++) {
