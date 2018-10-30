@@ -14,7 +14,9 @@ public class MyArrayList<Item extends Comparable<Item>>{
         list = temp;
     }
 
+
     int size() {
+
         return size;
     }
 
@@ -42,6 +44,7 @@ public class MyArrayList<Item extends Comparable<Item>>{
     }
 
     void set(int index, Item item) {
+
         if (index < 0 || index > size - 1) {
             throw new IndexOutOfBoundsException();
         }
@@ -49,6 +52,7 @@ public class MyArrayList<Item extends Comparable<Item>>{
     }
 
     Item get(int index) {
+
         if (index < 0 || index > size - 1) {
             throw new IndexOutOfBoundsException();
         }
@@ -83,6 +87,7 @@ public class MyArrayList<Item extends Comparable<Item>>{
     }
 
     void selectionSort() {
+
         for (int i = 0; i < size - 1; i++) {
             int min = i;
             for (int j = i + 1; j < size; j++) {
