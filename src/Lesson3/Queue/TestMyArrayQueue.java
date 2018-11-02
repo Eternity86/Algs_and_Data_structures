@@ -35,5 +35,5 @@ public class TestMyArrayQueue {
         System.out.println("Элементы очереди: " + myArrQueue);
         System.out.println("Первый в очереди: " + myArrQueue.peek());
     }
-    
+
 }
