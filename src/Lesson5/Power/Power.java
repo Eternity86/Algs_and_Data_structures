@@ -1,5 +1,7 @@
 package Lesson5.Power;
 
+import java.math.BigInteger;
+
 public class Power {
 
     // линейное возведение в степень за O(n)
@@ -19,12 +21,17 @@ public class Power {
 
     // бинарное нерекурсивное возведение в степень за O(log n)
     private static long binPower (long x, int n) {
+        // если ввели отрицательную степень, то выводим -1 как индикатор ошибки, т.к. данный метод не работает с отрицательными степенями
+        if (n < 0) {
+            return -1;
+        }
         long res = 1;
-        while (n != 0) {
-            if ((n & 1) != 0) // проверяем, чётная ли степень; аналогично n % 2 != 0
+        while (n > 0) {
+            if ((n & 1) != 0) { // проверяем на нечётность; тождественно n % 2 != 0
                 res *= x;
+            }
             x *= x;
-            n >>= 1; // делим чётную степень пополам; аналогично n /= 2
+            n >>= 1; // уменьшаем чётную степень в два раза; тождественно n /= 2 - наш счётчик цикла
         }
         return res;
     }
@@ -40,6 +47,7 @@ public class Power {
         // если степень равна нулю, то возвращаем 1 - x^0 = 1
         if (n == 0)
             return 1;
+
         // ==============================================
         // рекурсивные случаи
         // если степень нечётная, то приводим её к чётной -> x^(n-1) = x^n * x, чтобы применить тождество ниже
@@ -47,12 +55,13 @@ public class Power {
             return recursivePower(x, n - 1) * x;
         } else {
             // т.к. x^n = x^(n/2)^2 => x^(n/2) * x^(n/2)
-            long y = recursivePower(x, n >> 1);
-            return y * y;
+            return recursivePower(x, n >> 1) * recursivePower(x, n >> 1);
         }
     }
 
     public static void main(String[] args){
+        BigInteger bigInteger = new BigInteger(String.valueOf(10));
+        bigInteger.pow(15);
         new Thread(() -> {
             long start1 = System.nanoTime();
             long pow1 = power(8,15);
@@ -85,7 +94,5 @@ public class Power {
             long finish2 = System.nanoTime();
             System.out.println(pow2 + " рекурсивно за " + (finish2 - start2) + " наносек");
         }).start();
-
-
     }
 }
