@@ -1,4 +1,4 @@
-package Lesson6;
+package Lesson6.MyBST;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -6,9 +6,9 @@ import java.util.Random;
 public class TestBST {
     public static void main(String[] args) {
         ArrayList<BST<Integer, Integer>> treeList = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 1; i <= 20; i++) {
             treeList.add(new BST<>());
-            System.out.println("Добавили " + (i + 1) + " дерево в список");
+            System.out.println("Добавили " + i + " дерево в список");
         }
         for (BST<Integer, Integer> aTreeList : treeList) {
             while (/*aTreeList.size() < Math.pow(2, 6) && */(int)(Math.log(aTreeList.size() + 1) / Math.log(2.0)) <= 6) {
