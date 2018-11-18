@@ -8,7 +8,7 @@ public class Link {
         iData = it;
     }
 
-    public int getKey() {
+    int getKey() {
         return iData;
     }
 

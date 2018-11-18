@@ -8,9 +8,9 @@ public class HashChainTest {
         Link aDataItem;
         int size, n, keysPerCell = 100;
 
-        System.out.print("Enter size of hash table: ");
+        System.out.print("Введите размер хеш-таблицы: ");
         size = getInt();
-        System.out.print("Enter initial number of items: ");
+        System.out.print("Введите начальное кол-во элементов: ");
         n = getInt();
 
         HashTable hashTable = new HashTable(size);
@@ -22,8 +22,8 @@ public class HashChainTest {
         }
 
         while (true) {
-            System.out.print("Enter first letter of " +
-                    "(s)how, (i)nsert, (d)elete or (f)ind: ");
+            System.out.print("Введите первую букву слова " +
+                    "(s)how - показать, (i)nsert - вставить, (d)elete - удалить or (f)ind - найти: ");
             char choice = getChar();
             switch (choice) {
                 case 's': {
@@ -31,37 +31,37 @@ public class HashChainTest {
                     break;
                 }
                 case 'i': {
-                    System.out.print("Enter key value to insert: ");
+                    System.out.print("Введите ключ для вставки: ");
                     aKey = getInt();
                     aDataItem = new Link(aKey);
                     hashTable.insert(aDataItem);
                     break;
                 }
                 case 'd': {
-                    System.out.print("Enter key value to delete: ");
+                    System.out.print("Введите ключ для удаления: ");
                     aKey = getInt();
                     hashTable.delete(aKey);
                     break;
                 }
                 case 'f': {
-                    System.out.print("Enter key value to find: ");
+                    System.out.print("Введите ключ для поиска: ");
                     aKey = getInt();
                     aDataItem = hashTable.find(aKey);
                     if (aDataItem != null) {
-                        System.out.println("Found " + aKey);
+                        System.out.println("Найдено " + aKey);
                     } else {
-                        System.out.println("Could nod find " + aKey);
+                        System.out.println("Невозможно найти " + aKey);
                     }
                     break;
                 }
                 default: {
-                    System.out.print("Invalid entry" + System.lineSeparator());
+                    System.out.print("Неверный управляющий символ" + System.lineSeparator());
                 }
             }
         }
     }
 
-    public static String getString() {
+    private static String getString() {
         return new Scanner(System.in).nextLine();
     }
 
@@ -69,7 +69,7 @@ public class HashChainTest {
         return getString().charAt(0);
     }
 
-    public static int getInt() {
+    private static int getInt() {
         return Integer.parseInt(getString());
     }
 
