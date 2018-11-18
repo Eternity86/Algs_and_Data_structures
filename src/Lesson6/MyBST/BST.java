@@ -1,4 +1,4 @@
-package Lesson6;
+package Lesson6.MyBST;
 
 import java.util.NoSuchElementException;
 
